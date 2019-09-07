@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eblackbu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/09/06 11:50:13 by eblackbu          #+#    #+#             */
+/*   Updated: 2019/09/07 15:31:20 by eblackbu         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <string.h>
 #include <stdlib.h>
 #include "libft.h"
@@ -11,17 +23,18 @@ static int	is_valid(const char *nbr, int flag)
 		len++;
 	if (flag == -1)
 	{
-		if (len > 19 || ft_strcmp(nbr, "9223372036854775808") > 0)
+		if ((len == 19 && ft_strcmp(nbr, "9223372036854775808") > 0) \
+				|| len > 19)
 			return (0);
 	}
 	else
 	{
-		if (len > 19 || ft_strcmp(nbr, "9223372036854775807") > 0)
+		if ((len == 19 && ft_strcmp(nbr, "9223372036854775807") > 0) \
+				|| len > 19)
 			return (-1);
 	}
 	return (1);
 }
-
 
 int			ft_atoi(const char *str)
 {
@@ -32,7 +45,7 @@ int			ft_atoi(const char *str)
 	i = 0;
 	nbr = 0;
 	flag = 1;
-	while (str[i] == 32 || (str[i] < 13 && str[i] > 8))
+	while (str[i] == 32 || (str[i] < 14 && str[i] > 8))
 		i++;
 	if (ft_strcmp(str, "-2147483648") == 0)
 		return (-2147483648);

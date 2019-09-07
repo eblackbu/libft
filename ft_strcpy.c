@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eblackbu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/06 11:57:13 by eblackbu          #+#    #+#             */
-/*   Updated: 2019/09/07 14:10:55 by eblackbu         ###   ########.fr       */
+/*   Created: 2019/09/04 11:53:00 by eblackbu          #+#    #+#             */
+/*   Updated: 2019/09/06 12:19:17 by eblackbu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
-#include <stdlib.h>
 #include "libft.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+char	*ft_strcpy(char *dest, const char *src)
 {
-	unsigned int	i;
-	char			*newstr;
+	size_t	i;
 
 	i = 0;
-	if (!s)
-		return (NULL);
-	if (!(newstr = (char*)malloc(sizeof(char) * (len + 1))))
-		return (NULL);
-	while (i < len)
+	while (src[i])
 	{
-		newstr[i] = s[start + i];
+		dest[i] = src[i];
 		i++;
 	}
-	newstr[i] = '\0';
-	return (newstr);
+	dest[i] = '\0';
+	return (dest);
 }

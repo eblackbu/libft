@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eblackbu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/06 11:57:13 by eblackbu          #+#    #+#             */
-/*   Updated: 2019/09/07 14:10:55 by eblackbu         ###   ########.fr       */
+/*   Created: 2019/09/03 10:27:52 by eblackbu          #+#    #+#             */
+/*   Updated: 2019/09/06 13:52:47 by eblackbu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include <stdlib.h>
 #include "libft.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+char		*ft_strdup(const char *src)
 {
-	unsigned int	i;
-	char			*newstr;
+	int		i;
+	char	*ret_str;
 
 	i = 0;
-	if (!s)
+	if (!(ret_str = (char*)malloc(sizeof(char) * (ft_strlen(src) + 1))))
 		return (NULL);
-	if (!(newstr = (char*)malloc(sizeof(char) * (len + 1))))
-		return (NULL);
-	while (i < len)
+	while (src[i])
 	{
-		newstr[i] = s[start + i];
+		ret_str[i] = src[i];
 		i++;
 	}
-	newstr[i] = '\0';
-	return (newstr);
+	ret_str[i] = '\0';
+	return (ret_str);
 }

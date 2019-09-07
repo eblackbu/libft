@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eblackbu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/09/06 11:57:20 by eblackbu          #+#    #+#             */
+/*   Updated: 2019/09/07 14:09:40 by eblackbu         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <string.h>
 #include <stdlib.h>
 #include "libft.h"
@@ -31,11 +43,13 @@ char			*ft_strtrim(char const *s)
 {
 	size_t	i;
 	size_t	j;
-	size_t 	len;
+	size_t	len;
 	char	*newstr;
 
 	i = 0;
 	j = 0;
+	if (!s)
+		return (NULL);
 	len = ft_strlen_spec(s);
 	if (!(newstr = (char*)malloc(sizeof(char) * (len + 1))))
 		return (NULL);

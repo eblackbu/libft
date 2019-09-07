@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eblackbu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/09/06 11:56:57 by eblackbu          #+#    #+#             */
+/*   Updated: 2019/09/07 14:11:46 by eblackbu         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 #include "libft.h"
 
@@ -22,7 +34,7 @@ static unsigned int	count_words(const char *str, char separator)
 	return (count);
 }
 
-static char			*ft_new_str(const char	*str, char separator)
+static char			*ft_new_str(const char *str, char separator)
 {
 	size_t			i;
 	size_t			len;
@@ -63,6 +75,8 @@ char				**ft_strsplit(char const *s, char c)
 
 	i = 0;
 	j = 0;
+	if (!s)
+		return (NULL);
 	words = count_words(s, c);
 	if (!(list = (char**)malloc(sizeof(char*) * (words + 1))))
 		return (NULL);
