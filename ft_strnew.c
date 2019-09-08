@@ -18,6 +18,8 @@ char	*ft_strnew(size_t size)
 	size_t	i;
 	char	*arr;
 
+	if (size > size + 1)
+		return (NULL);
 	i = 0;
 	if (!(arr = (char*)malloc(sizeof(char) * (size + 1))))
 		return (NULL);
