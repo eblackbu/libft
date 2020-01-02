@@ -32,7 +32,7 @@ void		*ft_memmove(void *dst, const void *src, size_t len)
 	size_t	i;
 
 	i = 0;
-	if (!((unsigned char)dst || (unsigned char)src))
+	if (!((unsigned char*)dst || (unsigned char*)src))
 		return (NULL);
 	if (!(check_overlap(dst, src, len)))
 		return (ft_memcpy(dst, src, len));

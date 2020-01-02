@@ -42,7 +42,7 @@ static char			*ft_new_str(const char *str, char separator)
 
 	i = 0;
 	len = 0;
-	while (str[len] != separator)
+	while (str[len] != separator && str[len])
 		len++;
 	if (!(newstr = (char*)malloc(sizeof(char) * (len + 1))))
 		return (NULL);
