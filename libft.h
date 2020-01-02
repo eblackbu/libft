@@ -6,7 +6,7 @@
 /*   By: eblackbu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 12:02:49 by eblackbu          #+#    #+#             */
-/*   Updated: 2019/09/07 09:33:16 by eblackbu         ###   ########.fr       */
+/*   Updated: 2019/10/06 18:15:18 by eblackbu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,9 @@ void				ft_lstdel(t_list **alst, void(*del)(void *, size_t));
 void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void(*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
-void				ft_lstadd_front(t_list **alst, t_list *new);
+void				ft_lstadd_back(t_list **alst, t_list *new);
+int					ft_max(int *array, int size);
+int					ft_min(int *array, int size);
+size_t				ft_abs(int x);
 
 #endif
