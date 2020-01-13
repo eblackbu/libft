@@ -6,7 +6,7 @@
 /*   By: eblackbu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 12:02:49 by eblackbu          #+#    #+#             */
-/*   Updated: 2019/09/07 09:33:16 by eblackbu         ###   ########.fr       */
+/*   Updated: 2020/01/08 12:37:00 by eblackbu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,21 @@
 # include <stdlib.h>
 # include <string.h>
 
+# define BUFF_SIZE 16
+
 typedef struct		s_list
 {
 	void			*content;
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
+
+typedef struct		s_file
+{
+	int				fd;
+	char			*str;
+	struct s_file	*next;
+}					t_file;
 
 void				*ft_memset(void *dest, int c, size_t n);
 void				ft_bzero(void *s, size_t n);
@@ -83,6 +92,10 @@ void				ft_lstdel(t_list **alst, void(*del)(void *, size_t));
 void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void(*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
-void				ft_lstadd_front(t_list **alst, t_list *new);
+void				ft_lstadd_back(t_list **alst, t_list *new);
+int					ft_max(int *array, int size);
+int					ft_min(int *array, int size);
+size_t				ft_abs(int x);
+int					get_next_line(int fd, char **line);
 
 #endif

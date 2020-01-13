@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eblackbu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/06 18:41:27 by eblackbu          #+#    #+#             */
-/*   Updated: 2019/10/06 18:08:01 by eblackbu         ###   ########.fr       */
+/*   Created: 2019/10/06 18:08:20 by eblackbu          #+#    #+#             */
+/*   Updated: 2019/10/06 18:08:25 by eblackbu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
+void	ft_lstadd_back(t_list **alst, t_list *new)
 {
-	t_list	*new_list;
+	t_list	*current_node;
 
-	new_list = NULL;
-	if (!(lst && (*f)))
-		return (NULL);
-	while (lst)
+	current_node = *alst;
+	if (!current_node)
+		*alst = new;
+	else
 	{
-		ft_lstadd_back(&new_list, (*f)(lst));
-		lst = lst->next;
+		while (current_node->next)
+			current_node = current_node->next;
+		current_node->next = new;
 	}
-	return (new_list);
 }

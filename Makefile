@@ -6,7 +6,7 @@
 #    By: eblackbu <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/06 12:32:34 by eblackbu          #+#    #+#              #
-#    Updated: 2019/09/11 13:10:53 by eblackbu         ###   ########.fr        #
+#    Updated: 2020/01/08 12:42:37 by eblackbu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,9 @@
 
 NAME = libft.a
 
-SRC = ft_memset.c \
+SRC = get_next_line.c \
+	  ft_abs.c \
+	  ft_memset.c \
 	  ft_bzero.c \
 	  ft_memcpy.c \
 	  ft_memccpy.c \
@@ -43,6 +45,7 @@ SRC = ft_memset.c \
 	  ft_isprint.c \
 	  ft_toupper.c \
 	  ft_tolower.c \
+	  ft_max.c \
 	  ft_memalloc.c \
 	  ft_memdel.c \
 	  ft_strnew.c \
@@ -73,7 +76,7 @@ SRC = ft_memset.c \
 	  ft_lstadd.c \
 	  ft_lstiter.c \
 	  ft_lstmap.c \
-	  ft_lstadd_front.c
+	  ft_lstadd_back.c
 
 FLAGS = -Wall -Werror -Wextra
 
@@ -84,8 +87,8 @@ OBJ = $(subst .c,.o,$(SRC))
 %.o: %.c
 	gcc $(FLAGS) $< -c -o $@
 
-$(NAME): $(OBJ)
-	ar rc $(NAME) $(OBJ)
+$(NAME): $(OBJ) libft.h
+	@ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
 
 clean:

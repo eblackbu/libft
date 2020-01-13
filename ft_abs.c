@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_abs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eblackbu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/06 18:41:27 by eblackbu          #+#    #+#             */
-/*   Updated: 2019/10/06 18:08:01 by eblackbu         ###   ########.fr       */
+/*   Created: 2019/10/06 18:14:00 by eblackbu          #+#    #+#             */
+/*   Updated: 2019/10/06 18:15:28 by eblackbu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
+size_t	ft_abs(int x)
 {
-	t_list	*new_list;
-
-	new_list = NULL;
-	if (!(lst && (*f)))
-		return (NULL);
-	while (lst)
-	{
-		ft_lstadd_back(&new_list, (*f)(lst));
-		lst = lst->next;
-	}
-	return (new_list);
+	if (x < 0)
+		return (-x);
+	return (x);
 }

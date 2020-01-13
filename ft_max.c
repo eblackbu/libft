@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_max.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eblackbu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/06 18:41:27 by eblackbu          #+#    #+#             */
-/*   Updated: 2019/10/06 18:08:01 by eblackbu         ###   ########.fr       */
+/*   Created: 2019/10/06 18:09:19 by eblackbu          #+#    #+#             */
+/*   Updated: 2019/10/06 18:11:24 by eblackbu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
+int		ft_max(int *array, int size)
 {
-	t_list	*new_list;
+	int		max;
 
-	new_list = NULL;
-	if (!(lst && (*f)))
-		return (NULL);
-	while (lst)
+	max = -2147483648;
+	while (size--)
 	{
-		ft_lstadd_back(&new_list, (*f)(lst));
-		lst = lst->next;
+		if (array[size] > max)
+			max = array[size];
 	}
-	return (new_list);
+	return (max);
 }

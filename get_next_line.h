@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eblackbu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/06 18:41:27 by eblackbu          #+#    #+#             */
-/*   Updated: 2019/10/06 18:08:01 by eblackbu         ###   ########.fr       */
+/*   Created: 2019/09/11 14:12:19 by eblackbu          #+#    #+#             */
+/*   Updated: 2019/09/14 15:03:55 by eblackbu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
+# include "libft/libft.h"
+# define BUFF_SIZE 64
+
+typedef struct		s_file
 {
-	t_list	*new_list;
+	int				fd;
+	char			*str;
+	struct s_file	*next;
+}					t_file;
 
-	new_list = NULL;
-	if (!(lst && (*f)))
-		return (NULL);
-	while (lst)
-	{
-		ft_lstadd_back(&new_list, (*f)(lst));
-		lst = lst->next;
-	}
-	return (new_list);
-}
+int					get_next_line(const int fd, char **line);
+
+#endif

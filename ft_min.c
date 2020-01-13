@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_min.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eblackbu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/07 08:54:28 by eblackbu          #+#    #+#             */
-/*   Updated: 2019/09/07 08:57:41 by eblackbu         ###   ########.fr       */
+/*   Created: 2019/10/06 18:11:30 by eblackbu          #+#    #+#             */
+/*   Updated: 2019/10/06 18:20:39 by eblackbu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_lstadd_front(t_list **alst, t_list *new)
+int			ft_min(int *array, int size)
 {
-	t_list	*current_node;
+	int		min;
 
-	current_node = *alst;
-	if (!current_node)
-		*alst = new;
-	else
+	min = 2147483647;
+	while (size--)
 	{
-		while (current_node->next)
-			current_node = current_node->next;
-		current_node->next = new;
+		if (array[size] < min)
+			min = array[size];
 	}
+	return (min);
 }
